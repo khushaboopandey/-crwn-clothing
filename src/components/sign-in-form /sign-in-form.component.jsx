@@ -22,9 +22,7 @@ export const SignInForm = () => {
   const { setCurrentUser } = useContext(UserContext);
 
   const signInwithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    setCurrentUser(user);
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const resetFormField = () => {
@@ -49,7 +47,7 @@ export const SignInForm = () => {
         password
       );
 
-      setCurrentUser(user);
+      // setCurrentUser(user);
       resetFormField();
     } catch (e) {
       switch (e.code) {
